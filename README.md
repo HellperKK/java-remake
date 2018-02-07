@@ -1,2 +1,2 @@
 # Jemake
-Des experiences en java enterme de design objet
+Des experiences en java en terme de design objet
