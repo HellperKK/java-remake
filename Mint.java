@@ -8,7 +8,7 @@
 public class Mint
 {
     // variables d'instance - remplacez l'exemple qui suit par le vôtre
-    private int value;
+    public int value;
 
     /**
      * Constructeur d'objets de classe Mint
@@ -63,7 +63,7 @@ public class Mint
     /**
      * Remplace le *
      */
-    public Mint times(int y)
+    public Mint prod(int y)
     {
         return Mint.make(this.value * y);
     }
@@ -144,7 +144,7 @@ public class Mint
     /**
      * Remplace le * en modifiant en place
      */
-    public Mint times_(int y)
+    public Mint prod_(int y)
     {
         this.value *= y;
         return this;

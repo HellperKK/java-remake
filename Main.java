@@ -8,6 +8,16 @@
 public class Main
 {
     public static void main(String[] args){
+        Container<AtomLam<Integer, Integer>> test = new Container<AtomLam<Integer, Integer>>((Integer x) -> {return x + 1;});
+        test.set((Integer x) -> {
+            if(x == 0){
+                return 1;
+            }
+            else{
+                return x * test.value.call(x - 1);
+            }            
+        });
+        System.out.println(test.value.call(3));
         
     }
     
@@ -40,8 +50,19 @@ public class Main
     }
     
     public static void timesTest(){
-        new Mint(10).times(
-            (x) -> {
+        Nombre test = new Nombre();
+        test.increment()
+            .increment()
+            .increment()
+            .increment()
+            .increment()
+            .increment()
+            .increment()
+            .increment()
+            .increment()
+            .increment();
+        test.times(
+            (Mint x) -> {
                 System.out.println(x._value());
                 return Constantes.unit;
             }

@@ -1,12 +1,12 @@
 /**
- * Décrivez votre classe Container ici.
+ * Pour contenir une valeur et la changer
  *
  * @author Hellper (Adrien Baudet)
  * @version 21/11/2017
  */
 public class Container<A>
 {
-    // variables d'instance - remplacez l'exemple qui suit par le vôtre
+    //Une valeur contenue
     public A value;
 
     /**
@@ -19,7 +19,7 @@ public class Container<A>
     }
 
     /**
-     * Un exemple de méthode - remplacez ce commentaire par le vôtre
+     * Change la valeur du container
      */
     public Container<A> set(A value)
     {
