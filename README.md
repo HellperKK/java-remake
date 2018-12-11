@@ -13,4 +13,4 @@ Plusieurs tests sont disponibles dans la classe Main. A savoir :
 Dans la plupart des cas le concept est de tester l'implémentation de design objet inspirés de Smalltalk dans un langage objet statiquement typé et ainsi réécrire des composant de base comme les conditions et la boucle while.
 
 # Doc
-Une documentation st disponible dans le dossier bien que très succinte. Je techerais de la compléter plus tard.
+Une documentation st disponible dans le dossier Doc bien que très succinte. Je techerais de la compléter plus tard.
