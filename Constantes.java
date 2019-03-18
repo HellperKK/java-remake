@@ -42,6 +42,10 @@ final class Constantes{
         {
             return otherLam.call(Constantes.unit);
         }
+        
+        public String toString(){
+            return "Vrai";
+        }
     };
     public static Bool faux = new Bool(){
         
@@ -79,6 +83,10 @@ final class Constantes{
         public Unit ifFalseIfTrue(AtomLam<Unit, Unit> lam, AtomLam<Unit, Unit> otherLam)
         {
             return lam.call(Constantes.unit);
+        }
+        
+        public String toString(){
+            return "Faux";
         }
     };
     

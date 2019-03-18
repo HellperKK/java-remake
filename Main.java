@@ -18,7 +18,6 @@ public class Main
             }            
         });
         System.out.println(test.value.call(3));
-        
     }
     
     public static void optionTest(){
@@ -60,7 +59,17 @@ public class Main
             .increment()
             .increment()
             .increment()
-            .increment();
+            .increment()
+            .times(
+            (Mint x) -> {
+                System.out.println(x._value());
+                return Constantes.unit;
+            }
+        );
+    }
+    
+    public static void timesTestBis(){
+        Nombre test = new Nombre(new Mint(10));
         test.times(
             (Mint x) -> {
                 System.out.println(x._value());
@@ -73,5 +82,33 @@ public class Main
         RecExtend<Container<Integer>> rec = new RecExtend<Container<Integer>>((Container<Integer> entier) -> {
             return entier.set(entier.value + 1);});
         // System.out.println(rec.execute(new Mint(20), new Container<Integer>(new Integer(0))).value);
+    }
+    
+    public static void nombreEqTest(){    
+       Nombre test = new Nombre();
+       test.increment_()
+           .increment_()
+           .increment_();
+       Nombre testb = new Nombre();
+       testb.increment_()
+           .increment_()
+           .increment_();
+       System.out.println(test.equals(testb));
+       System.out.println(test.equals(testb.increment().increment()));
+       System.out.println(test.equals(testb.decrement().decrement()));
+    }
+    
+    public static void nombreSupTest(){    
+       Nombre test = new Nombre();
+       test.increment_()
+           .increment_()
+           .increment_();
+       Nombre testb = new Nombre();
+       testb.increment_()
+           .increment_()
+           .increment_();
+       System.out.println(test.sup(testb));
+       System.out.println(test.sup(testb.increment()));
+       System.out.println(test.sup(testb.decrement()));
     }
 }

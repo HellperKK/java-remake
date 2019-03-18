@@ -7,7 +7,7 @@
  */
 public class Mint
 {
-    // variables d'instance - remplacez l'exemple qui suit par le vôtre
+    // variables d'instance - int contenu dans l'objet
     public int value;
 
     /**
@@ -167,5 +167,13 @@ public class Mint
     {
         this.value %= y;
         return this;
+    }
+    
+    /**
+     * Pour afficher dans la console
+     */
+    public String toString()
+    {
+        return String.valueOf(value);
     }
 }

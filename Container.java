@@ -26,4 +26,13 @@ public class Container<A>
         this.value = value;
         return this;
     }
+    
+    /**
+     * Change la valeur du container d'apres une lambda
+     */
+    public Container<A> update(AtomLam<A, A> lam)
+    {
+        value = lam.call(value);
+        return this;
+    }
 }

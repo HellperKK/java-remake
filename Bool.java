@@ -23,7 +23,7 @@ public abstract class Bool
     abstract public Bool or(Bool other);
     
     /**
-     * Equivalent de xor
+     * Equivalent de egalite
      */
     abstract public Bool xnor(Bool other);
     
@@ -46,4 +46,9 @@ public abstract class Bool
      * Equivalent de unlesselse
      */
     abstract public Unit ifFalseIfTrue(AtomLam<Unit, Unit> lam, AtomLam<Unit, Unit> otherLam);
+    
+    /**
+     * Pour ecrire dans la console
+     */
+    abstract public String toString();
 }
