@@ -2,7 +2,7 @@
 /**
  * Definit les booleens
  *
- * @Adrien Baudet
+ * @author Adrien Baudet
  * @version 21.10.2017
  */
 public abstract class Bool

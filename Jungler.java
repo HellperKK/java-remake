@@ -1,9 +1,9 @@
 
 /**
- * Décrivez votre classe Phantom ici.
+ * Classe Gag sur l'utilisation des generiques
  *
- * @author (votre nom)
- * @version (un numéro de version ou une date)
+ * @author Adrien Baudet
+ * @version 20/03/2019
  */
 public class Jungler<A, B, C>
 {
@@ -16,7 +16,7 @@ public class Jungler<A, B, C>
     }
 
     /**
-     * Swappe les types
+     * Swappe les deux premiers types
      */
     public Jungler<B, A, C> swapConv()
     {
@@ -24,7 +24,7 @@ public class Jungler<A, B, C>
     }
     
     /**
-     * Swappe les types
+     * Swappe les premier et dernier types
      */
     public Jungler<C, B, A> swapJump()
     {
@@ -32,7 +32,7 @@ public class Jungler<A, B, C>
     }
     
     /**
-     * Swappe les types
+     * Swappe les deux derniers types
      */
     public Jungler<A, C, B> swap()
     {
