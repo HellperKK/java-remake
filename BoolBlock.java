@@ -6,7 +6,7 @@
  */
 public class BoolBlock
 {
-    // variable d'instance - remplacez cet exemple par le vôtre
+    // Lambda encapsulee par le bloc
     AtomLam<Unit, Bool> lam;
     
     /**

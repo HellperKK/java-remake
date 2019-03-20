@@ -6,6 +6,10 @@
  */
 
 final class Constantes{
+    /**
+     * Definition du singleton true via une classe anonyme
+     * baptise vrai pour eviter des soucis d'espace de nom
+     */
     public static Bool vrai = new Bool(){
         public Bool not(){
             return Constantes.faux;
@@ -47,6 +51,11 @@ final class Constantes{
             return "Vrai";
         }
     };
+    
+    /**
+     * Definition du singleton false via une classe anonyme
+     * baptise faux pour eviter des soucis d'espace de nom
+     */
     public static Bool faux = new Bool(){
         
         public Bool not(){
@@ -90,5 +99,8 @@ final class Constantes{
         }
     };
     
+    /**
+     * Definition du singleton unit qui remplace void
+     */
     public static Unit unit = new Unit();
 }
