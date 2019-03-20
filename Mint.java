@@ -88,7 +88,7 @@ public class Mint
     /**
      * Test d'egalite
      */
-    public Bool eq(Mint aMint)
+    public Bool equals(Mint aMint)
     {
         return this.value == aMint._value() ? Constantes.vrai : Constantes.faux;
     }
@@ -114,7 +114,7 @@ public class Mint
      */
     public Unit times(AtomLam<Mint, Unit> lam)
     {
-        return this.eq(new Mint(0)).ifTrueIfFalse(
+        return this.equals(new Mint(0)).ifTrueIfFalse(
             (x) -> {return Constantes.unit;},
             (x) -> {
                     lam.call(this); 

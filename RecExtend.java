@@ -24,7 +24,7 @@ public class RecExtend<A>
     public A execute(Mint pow, Container<A> cont)
     {
         
-        pow.eq(new Mint(0)).ifTrueIfFalse(
+        pow.equals(new Mint(0)).ifTrueIfFalse(
             (x) -> {
                 cont.set(lam.call(cont.value));
                 return Constantes.unit;
