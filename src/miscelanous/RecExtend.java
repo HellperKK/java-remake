@@ -2,8 +2,6 @@ package src.miscelanous;
 
 import src.functionnal.AtomLam;
 import src.numbers.Num;
-import src.singletons.Unit;
-import src.utils.Container;
 
 /**
  * Classe pour outrepasser la recursive stack
@@ -28,31 +26,18 @@ public class RecExtend<A>
     /**
      * Methode d'extension
      */
-    public A execute(Num pow, Container<A> cont)
+    public A execute(Num pow, A val)
     {
         
-        pow.equals(new Num()).ifTrueIfFalse(
+        return pow.is_zero().ifTrueIfFalse(
             (x) -> {
-                cont.update(lam);
-                return Unit.getInstance();
+                return lam.call(val);
             },
             (x) -> {
                 Num dec = pow.decrement();
-                this.execute(dec, cont);
-                this.execute(dec, cont);
-                return Unit.getInstance();
+                A valb = this.execute(dec, val);
+                return this.execute(dec, valb);
             }
         );
-        return cont.value;
     }
-    
-    /**
-     * Methode d'appel
-     */
-    public A sampleMethod(A value)
-    {
-        Container<A> cont = new Container<A>(value);
-        return cont.value;
-    }
-
 }

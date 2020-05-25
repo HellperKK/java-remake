@@ -64,7 +64,7 @@ public class Main
     
     public static void recExtTest(){    
         RecExtend<Integer> rec = new RecExtend<Integer>((Integer entier) -> entier + 1);
-        // System.out.println(rec.execute(new Mint(20), new Container<Integer>(new Integer(0))).value);
+        System.out.println(rec.execute(Num.Ten, 0));
     }
     
     public static void NumEqTest(){    
