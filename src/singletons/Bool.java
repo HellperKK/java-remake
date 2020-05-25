@@ -1,3 +1,6 @@
+package src.singletons;
+
+import src.functionnal.AtomLam;
 
 /**
  * Definit les booleens
@@ -40,12 +43,12 @@ public abstract class Bool
     /**
      * Equivalent de ifelse
      */
-    abstract public Unit ifTrueIfFalse(AtomLam<Unit, Unit> lam, AtomLam<Unit, Unit> otherLam);
+    abstract public <A> A ifTrueIfFalse(AtomLam<Unit, A> lam, AtomLam<Unit, A> otherLam);
     
     /**
      * Equivalent de unlesselse
      */
-    abstract public Unit ifFalseIfTrue(AtomLam<Unit, Unit> lam, AtomLam<Unit, Unit> otherLam);
+    abstract public <A> A ifFalseIfTrue(AtomLam<Unit, A> lam, AtomLam<Unit, A> otherLam);
     
     /**
      * Pour ecrire dans la console

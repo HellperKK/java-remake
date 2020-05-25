@@ -1,3 +1,8 @@
+package src.numbers;
+
+import src.singletons.Bool;
+import src.singletons.TrueClass;
+
 /**
  * Classe gérant le zero
  *
@@ -19,7 +24,7 @@ public class Zero
      */
     public Bool is_zero()
     {
-        return Constantes.vrai;
+        return TrueClass.getInstance();
     }
     
     /**

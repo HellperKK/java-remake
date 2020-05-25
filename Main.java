@@ -1,3 +1,8 @@
+import src.functionnal.*;
+import src.miscelanous.*;
+import src.numbers.*;
+import src.singletons.*;
+import src.utils.*;
 
 /**
  * Classe principale
@@ -21,8 +26,8 @@ public class Main
     }
     
     public static void optionTest(){
-        hello(new None());
-        hello(new Some("John"));
+        hello(new None<String>());
+        hello(new Some<String>("John"));
     }
     
     public static void hello(Option<String> nom){
@@ -43,13 +48,13 @@ public class Main
             .whileTrue((x) -> {
                     //System.out.println(entier._value()); 
                     entier.add_(1); 
-                    return Constantes.unit;
+                    return Unit.getInstance();
                 }
             );
     }
     
     public static void timesTest(){
-        Nombre test = new Nombre();
+        Num test = new Num();
         test.increment()
             .increment()
             .increment()
@@ -63,17 +68,17 @@ public class Main
             .times(
             (Mint x) -> {
                 System.out.println(x._value());
-                return Constantes.unit;
+                return Unit.getInstance();
             }
         );
     }
     
     public static void timesTestBis(){
-        Nombre test = new Nombre(new Mint(10));
+        Num test = new Num(new Mint(10));
         test.times(
             (Mint x) -> {
                 System.out.println(x._value());
-                return Constantes.unit;
+                return Unit.getInstance();
             }
         );
     }
@@ -84,12 +89,12 @@ public class Main
         // System.out.println(rec.execute(new Mint(20), new Container<Integer>(new Integer(0))).value);
     }
     
-    public static void nombreEqTest(){    
-       Nombre test = new Nombre();
+    public static void NumEqTest(){    
+       Num test = new Num();
        test.increment_()
            .increment_()
            .increment_();
-       Nombre testb = new Nombre();
+       Num testb = new Num();
        testb.increment_()
            .increment_()
            .increment_();
@@ -98,12 +103,12 @@ public class Main
        System.out.println(test.equals(testb.decrement().decrement()));
     }
     
-    public static void nombreSupTest(){    
-       Nombre test = new Nombre();
+    public static void NumSupTest(){    
+       Num test = new Num();
        test.increment_()
            .increment_()
            .increment_();
-       Nombre testb = new Nombre();
+       Num testb = new Num();
        testb.increment_()
            .increment_()
            .increment_();

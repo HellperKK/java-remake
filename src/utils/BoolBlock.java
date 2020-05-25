@@ -1,3 +1,8 @@
+package src.utils;
+
+import src.functionnal.AtomLam;
+import src.singletons.*;
+
 /**
  * Définition abstraite de bloc
  *
@@ -30,7 +35,11 @@ public class BoolBlock
      */
     public Unit whileTrue(AtomLam<Unit, Unit> otherLam)
     {
-        lam.call(Constantes.unit).ifTrueIfFalse((x) -> {otherLam.call(Constantes.unit); return this.whileTrue(otherLam);}, (x) -> {return Constantes.unit;});
-        return Constantes.unit;
+        lam.call(Unit.getInstance())
+            .ifTrueIfFalse(
+                (_u) -> {otherLam.call(Unit.getInstance()); return this.whileTrue(otherLam);}, 
+                (_u) -> {return Unit.getInstance();}
+            );
+        return Unit.getInstance();
     }
 }

@@ -1,3 +1,4 @@
+package src.exceptions;
 
 /**
  * Décrivez votre classe MessageExeption ici.

@@ -1,3 +1,5 @@
+package src.functionnal;
+
 /**
  * Interface pour lambda atome
  *

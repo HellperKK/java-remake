@@ -1,3 +1,4 @@
+package src.miscelanous;
 
 /**
  * Classe Gag sur l'utilisation des generiques
@@ -20,7 +21,7 @@ public class Jungler<A, B, C>
      */
     public Jungler<B, A, C> swapConv()
     {
-        return new Jungler();
+        return new Jungler<B, A, C>();
     }
     
     /**
@@ -28,7 +29,7 @@ public class Jungler<A, B, C>
      */
     public Jungler<C, B, A> swapJump()
     {
-        return new Jungler();
+        return new Jungler<C, B, A>();
     }
     
     /**
@@ -36,6 +37,6 @@ public class Jungler<A, B, C>
      */
     public Jungler<A, C, B> swap()
     {
-        return new Jungler();
+        return new Jungler<A, C, B>();
     }
 }

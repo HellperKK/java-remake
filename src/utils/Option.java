@@ -1,3 +1,7 @@
+package src.utils;
+
+import src.singletons.Bool;
+
 /**
  * Pseudo equivalent du type option de Ocaml
  *

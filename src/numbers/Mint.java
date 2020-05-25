@@ -1,3 +1,7 @@
+package src.numbers;
+
+import src.functionnal.AtomLam;
+import src.singletons.*;
 
 /**
  * Definit un int mutable
@@ -90,7 +94,7 @@ public class Mint
      */
     public Bool equals(Mint aMint)
     {
-        return this.value == aMint._value() ? Constantes.vrai : Constantes.faux;
+        return this.value == aMint._value() ? TrueClass.getInstance() : FalseClass.getInstance();
     }
     
     /**
@@ -98,7 +102,7 @@ public class Mint
      */
     public Bool inf(Mint aMint)
     {
-        return this.value < aMint._value() ? Constantes.vrai : Constantes.faux;
+        return this.value < aMint._value() ? TrueClass.getInstance() : FalseClass.getInstance();
     }
     
     /**
@@ -106,7 +110,7 @@ public class Mint
      */
     public Bool sup(Mint aMint)
     {
-        return this.value > aMint._value() ? Constantes.vrai : Constantes.faux;
+        return this.value > aMint._value() ? TrueClass.getInstance() : FalseClass.getInstance();
     }
     
     /**
@@ -115,7 +119,7 @@ public class Mint
     public Unit times(AtomLam<Mint, Unit> lam)
     {
         return this.equals(new Mint(0)).ifTrueIfFalse(
-            (x) -> {return Constantes.unit;},
+            (x) -> {return Unit.getInstance();},
             (x) -> {
                     lam.call(this); 
                     return this.subs(1).times(lam);

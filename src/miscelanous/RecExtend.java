@@ -1,3 +1,10 @@
+package src.miscelanous;
+
+import src.functionnal.AtomLam;
+import src.numbers.Mint;
+import src.singletons.Unit;
+import src.utils.Container;
+
 /**
  * Classe pour outrepasser la recursive stack
  *
@@ -27,12 +34,12 @@ public class RecExtend<A>
         pow.equals(new Mint(0)).ifTrueIfFalse(
             (x) -> {
                 cont.set(lam.call(cont.value));
-                return Constantes.unit;
+                return Unit.getInstance();
             },
             (x) -> {
                 this.execute(pow.subs(1), cont);
                 this.execute(pow.subs(1), cont);
-                return Constantes.unit;
+                return Unit.getInstance();
             }
         );
         return cont.value;

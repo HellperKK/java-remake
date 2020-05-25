@@ -1,21 +1,21 @@
+package src.utils;
+
+import src.singletons.*;
+
 /**
- * Pseudo equivalent du Some de Ocaml
+ * Pseudo equivalent du None de Ocaml
  *
  * @author Hellper (Adrien Baudet)
  * @version 13/11/2017
  */
-public class Some<A> extends Option<A>
+public class None<A> extends Option<A>
 {
-    // valeur encapsulee
-    private A value;
-
     /**
-     * Constructeur d'objets de classe Some
+     * Constructeur d'objets de classe None
      */
-    public Some(A value)
+    public None()
     {
-        // initialisation des variables d'instance
-        this.value = value;
+        
     }
 
     /**
@@ -23,7 +23,7 @@ public class Some<A> extends Option<A>
      */
     public A may_get(A replacement)
     {
-        return this.value;
+        return replacement;
     }
     
     /**
@@ -31,7 +31,7 @@ public class Some<A> extends Option<A>
      */
     public A force_get()
     {
-        return this.value;
+        throw new UnsupportedOperationException();
     }
     
     /**
@@ -39,6 +39,6 @@ public class Some<A> extends Option<A>
      */
     public Bool is_some()
     {
-        return Constantes.vrai;
+        return FalseClass.getInstance();
     }
 }

@@ -1,3 +1,7 @@
+package src.utils;
+
+import src.functionnal.AtomLam;
+
 /**
  * Pour contenir une valeur et la changer
  *

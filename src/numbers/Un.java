@@ -1,3 +1,8 @@
+package src.numbers;
+
+import src.singletons.Bool;
+import src.singletons.FalseClass;
+
 /**
  * Classe gérant le un
  *
@@ -29,7 +34,7 @@ public class Un extends Zero
      */
     public Bool is_zero()
     {
-        return Constantes.faux;
+        return FalseClass.getInstance();
     }
     
     /**
