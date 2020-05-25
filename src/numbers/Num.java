@@ -12,17 +12,18 @@ import src.utils.Container;
  * @version 14/03/2018
  */
 public class Num {
-    static Num Zero = new Num();
-    static Num One = Zero.increment();
-    static Num Two = One.increment();
-    static Num Three = Two.increment();
-    static Num Four = Three.increment();
-    static Num Five = Four.increment();
-    static Num Six = Five.increment();
-    static Num Seven = Six.increment();
-    static Num Eight = Seven.increment();
-    static Num Nine = Eight.increment();
-    static Num Ten = Nine.increment();
+    static public Num Zero = new Num();
+    static public Num One = Zero.increment();
+    static public Num Two = One.increment();
+    static public Num Three = Two.increment();
+    static public Num Four = Three.increment();
+    static public Num Five = Four.increment();
+    static public Num Six = Five.increment();
+    static public Num Seven = Six.increment();
+    static public Num Eight = Seven.increment();
+    static public Num Nine = Eight.increment();
+    static public Num Ten = Nine.increment();
+    static public Num Hundred = Ten.mult(Ten);
     
     public Zero value;
 
@@ -158,7 +159,18 @@ public class Num {
     {
         return other.is_zero().ifTrueIfFalse(
             (_u) -> this,
-            (_u) -> this.increment().add(other.decrement())
+            (_u) -> this.add(other.decrement()).increment()
+        );
+    }
+
+    /**
+     * Multiplication
+     */
+    public Num mult(Num other)
+    {
+        return other.is_zero().ifTrueIfFalse(
+            (_u) -> this,
+            (_u) -> this.mult(other.decrement()).add(this)
         );
     }
     
