@@ -12,18 +12,18 @@ import src.utils.Container;
  * @version 14/03/2018
  */
 public class Num {
-    static public Num Zero = new Num();
-    static public Num One = Zero.increment();
-    static public Num Two = One.increment();
-    static public Num Three = Two.increment();
-    static public Num Four = Three.increment();
-    static public Num Five = Four.increment();
-    static public Num Six = Five.increment();
-    static public Num Seven = Six.increment();
-    static public Num Eight = Seven.increment();
-    static public Num Nine = Eight.increment();
-    static public Num Ten = Nine.increment();
-    static public Num Hundred = Ten.mult(Ten);
+    static public Num ZERO = new Num();
+    static public Num ONE = ZERO.increment();
+    static public Num TWO = ONE.increment();
+    static public Num THREE = TWO.increment();
+    static public Num FOUR = THREE.increment();
+    static public Num FIVE = FOUR.increment();
+    static public Num SIX = FIVE.increment();
+    static public Num SEVEN = SIX.increment();
+    static public Num EIGHT = SEVEN.increment();
+    static public Num NINE = EIGHT.increment();
+    static public Num TEN = NINE.increment();
+    static public Num HUNDRED = TEN.mult(TEN);
     
     public Zero value;
 
