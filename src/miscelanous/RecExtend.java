@@ -1,7 +1,7 @@
 package src.miscelanous;
 
 import src.functionnal.AtomLam;
-import src.numbers.Mint;
+import src.numbers.Num;
 import src.singletons.Unit;
 import src.utils.Container;
 
@@ -28,17 +28,18 @@ public class RecExtend<A>
     /**
      * Methode d'extension
      */
-    public A execute(Mint pow, Container<A> cont)
+    public A execute(Num pow, Container<A> cont)
     {
         
-        pow.equals(new Mint(0)).ifTrueIfFalse(
+        pow.equals(new Num()).ifTrueIfFalse(
             (x) -> {
-                cont.set(lam.call(cont.value));
+                cont.update(lam);
                 return Unit.getInstance();
             },
             (x) -> {
-                this.execute(pow.subs(1), cont);
-                this.execute(pow.subs(1), cont);
+                Num dec = pow.decrement();
+                this.execute(dec, cont);
+                this.execute(dec, cont);
                 return Unit.getInstance();
             }
         );

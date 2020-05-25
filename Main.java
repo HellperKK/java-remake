@@ -42,17 +42,6 @@ public class Main
         System.out.println(lambda2.call(2));
     }
     
-    public static void blockTest(){
-        Mint entier = new Mint(0);
-        new BoolBlock((x) -> {return entier.inf(new Mint(20));})
-            .whileTrue((x) -> {
-                    //System.out.println(entier._value()); 
-                    entier.add_(1); 
-                    return Unit.getInstance();
-                }
-            );
-    }
-    
     public static void timesTest(){
         Num test = new Num();
         test.increment()
@@ -73,19 +62,8 @@ public class Main
         );
     }
     
-    public static void timesTestBis(){
-        Num test = new Num(new Mint(10));
-        test.times(
-            (Mint x) -> {
-                System.out.println(x._value());
-                return Unit.getInstance();
-            }
-        );
-    }
-    
     public static void recExtTest(){    
-        RecExtend<Container<Integer>> rec = new RecExtend<Container<Integer>>((Container<Integer> entier) -> {
-            return entier.set(entier.value + 1);});
+        RecExtend<Integer> rec = new RecExtend<Integer>((Integer entier) -> entier + 1);
         // System.out.println(rec.execute(new Mint(20), new Container<Integer>(new Integer(0))).value);
     }
     

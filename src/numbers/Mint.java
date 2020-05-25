@@ -1,8 +1,5 @@
 package src.numbers;
 
-import src.functionnal.AtomLam;
-import src.singletons.*;
-
 /**
  * Definit un int mutable
  *
@@ -87,44 +84,6 @@ public class Mint
     public Mint mod(int y)
     {
         return Mint.make(this.value % y);
-    }
-    
-    /**
-     * Test d'egalite
-     */
-    public Bool equals(Mint aMint)
-    {
-        return this.value == aMint._value() ? TrueClass.getInstance() : FalseClass.getInstance();
-    }
-    
-    /**
-     * Test d'inferieurite
-     */
-    public Bool inf(Mint aMint)
-    {
-        return this.value < aMint._value() ? TrueClass.getInstance() : FalseClass.getInstance();
-    }
-    
-    /**
-     * Test de superieurite
-     */
-    public Bool sup(Mint aMint)
-    {
-        return this.value > aMint._value() ? TrueClass.getInstance() : FalseClass.getInstance();
-    }
-    
-    /**
-     * Repete une action x fois
-     */
-    public Unit times(AtomLam<Mint, Unit> lam)
-    {
-        return this.equals(new Mint(0)).ifTrueIfFalse(
-            (x) -> {return Unit.getInstance();},
-            (x) -> {
-                    lam.call(this); 
-                    return this.subs(1).times(lam);
-                }
-        );
     }
 
     /**

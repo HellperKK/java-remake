@@ -12,6 +12,18 @@ import src.utils.Container;
  * @version 14/03/2018
  */
 public class Num {
+    static Num Zero = new Num();
+    static Num One = Zero.increment();
+    static Num Two = One.increment();
+    static Num Three = Two.increment();
+    static Num Four = Three.increment();
+    static Num Five = Four.increment();
+    static Num Six = Five.increment();
+    static Num Seven = Six.increment();
+    static Num Eight = Seven.increment();
+    static Num Nine = Eight.increment();
+    static Num Ten = Nine.increment();
+    
     public Zero value;
 
     /**
@@ -25,16 +37,6 @@ public class Num {
     public Num(Zero zero) {
         // initialisation des variables d'instance
         value = zero;
-    }
-
-    public Num(Mint x) {
-        // initialisation des variables d'instance
-        Container<Zero> cont = new Container<Zero>(new Zero());
-        x.times((Mint elm) -> {
-            cont.value = cont.value.increment();
-            return Unit.getInstance();
-        });
-        value = cont.value;
     }
 
     /**
@@ -147,6 +149,17 @@ public class Num {
     {
         value = value.decrement();
         return this;
+    }
+
+    /**
+     * Addition
+     */
+    public Num add(Num other)
+    {
+        return other.is_zero().ifTrueIfFalse(
+            (_u) -> this,
+            (_u) -> this.increment().add(other.decrement())
+        );
     }
     
     /**
