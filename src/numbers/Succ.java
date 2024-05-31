@@ -9,21 +9,21 @@ import src.singletons.FalseClass;
  * @author Hellper (Adrien Baudet)
  * @version 14/03/2018
  */
-public class Un extends Zero
+public class Succ extends AbstractNum
 {
     // variables d'instance - remplacez l'exemple qui suit par le vôtre
-    public Zero next;
+    public AbstractNum next;
 
     /**
      * Constructeur d'objets de classe Un
      */
-    public Un()
+    public Succ()
     {
         // initialisation des variables d'instance
         next = new Zero();
     }
     
-    public Un(Zero x)
+    public Succ(AbstractNum x)
     {
         // initialisation des variables d'instance
         next = x;
@@ -40,15 +40,15 @@ public class Un extends Zero
     /**
      * Donne sa valeur
      */
-    public Mint value()
+    public int value()
     {
-        return (new Mint(1)).add_(next.value().value);
+        return 1 + next.value();
     }
     
     /**
      * Decremente
      */
-    public Zero decrement()
+    public AbstractNum decrement()
     {
         return next;
     }

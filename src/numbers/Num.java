@@ -25,7 +25,7 @@ public class Num {
     static public Num TEN = NINE.increment();
     static public Num HUNDRED = TEN.mult(TEN);
     
-    public Zero value;
+    public AbstractNum value;
 
     /**
      * Constructeur d'objets de classe Num
@@ -35,18 +35,18 @@ public class Num {
         value = new Zero();
     }
 
-    public Num(Zero zero) {
+    public Num(AbstractNum num) {
         // initialisation des variables d'instance
-        value = zero;
+        value = num;
     }
 
     /**
      * Teste l'egalite
      */
     public Bool equals(Num bis) {
-        Container<Num> self = new Container<Num>(this);
-        Container<Num> other = new Container<Num>(bis);
-        Container<Bool> test = new Container<Bool>(TrueClass.getInstance());
+        Container<Num> self = new Container<>(this);
+        Container<Num> other = new Container<>(bis);
+        Container<Bool> test = new Container<>(TrueClass.getInstance());
         try {
             new BoolBlock((x) -> {
                 return TrueClass.getInstance();
@@ -57,9 +57,7 @@ public class Num {
                 test.set(TrueClass.getInstance());
                 return Unit.getInstance();
             });
-        } catch (UnsupportedOperationException exp) {
-
-        }
+        } catch (UnsupportedOperationException exp) {}
         return self.value.is_zero().and(other.value.is_zero()).and(test.value);
     }
 
@@ -87,9 +85,8 @@ public class Num {
                 test.set(TrueClass.getInstance());
                 return Unit.getInstance();
             });
-        } catch (UnsupportedOperationException exp) {
+        } catch (UnsupportedOperationException exp) {}
 
-        }
         return test.value.not();
     }
 
@@ -138,7 +135,7 @@ public class Num {
     /**
      * Incremente en place
      */
-    public Num increment_() {
+    public Num incrementInPlace() {
         value = value.increment();
         return this;
     }
@@ -146,7 +143,7 @@ public class Num {
     /**
      * Decremente en place
      */
-    public Num decrement_()
+    public Num decrementInPlace()
     {
         value = value.decrement();
         return this;
@@ -154,6 +151,8 @@ public class Num {
 
     /**
      * Addition
+     * x + 0 = x
+     * x + Succ(y) = Succ(x + y)
      */
     public Num add(Num other)
     {
@@ -169,7 +168,7 @@ public class Num {
     public Num mult(Num other)
     {
         return other.is_zero().ifTrueIfFalse(
-            (_u) -> this,
+            (_u) -> new Num(),
             (_u) -> this.mult(other.decrement()).add(this)
         );
     }
@@ -177,11 +176,12 @@ public class Num {
     /**
      * Repete une action x fois
      */
-    public Unit times(AtomLam<Mint, Unit> lam)
+    public Unit times(AtomLam<Integer, Unit> body)
     {
         try{
-            lam.call(value.value());
-            return this.decrement_().times(lam);
+            var nex = this.decrementInPlace();
+            body.call(value.value());
+            return nex.times(body);
         }
         catch(UnsupportedOperationException err){
             return Unit.getInstance();
@@ -191,7 +191,7 @@ public class Num {
     /**
      * Pour calculer la valeur
      */
-    public Mint value()
+    public int value()
     {
         return value.value();
     }
@@ -201,6 +201,6 @@ public class Num {
      */
     public String toString()
     {
-        return this.value().toString();
+        return String.valueOf(this.value());
     }
 }

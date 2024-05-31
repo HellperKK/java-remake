@@ -10,10 +10,10 @@ package src.functionnal;
 /**
  * Prend une valeur de type A et en retourne une de type B
  */
-public interface AtomLam<A, B>
+public interface AtomLam<I, O>
 {
     /**
      * Methode d'appel
      */
-    B call(A value);
+    O call(I value);
 }

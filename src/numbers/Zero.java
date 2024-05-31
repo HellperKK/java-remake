@@ -9,7 +9,7 @@ import src.singletons.TrueClass;
  * @author Hellper (Adrien Baudet)
  * @version 14/03/2018
  */
-public class Zero
+public class Zero extends AbstractNum
 {
     /**
      * Constructeur d'objets de classe Zero
@@ -30,23 +30,15 @@ public class Zero
     /**
      * Donne sa valeur
      */
-    public Mint value()
+    public int value()
     {
-        return new Mint(0);
-    }
-    
-    /**
-     * Incremente
-     */
-    public Zero increment()
-    {
-        return new Un(this);
+        return 0;
     }
     
     /**
      * Decremente
      */
-    public Zero decrement()
+    public AbstractNum decrement()
     {
         throw new UnsupportedOperationException();
     }

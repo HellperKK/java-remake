@@ -12,14 +12,14 @@ import src.singletons.*;
 public class BoolBlock
 {
     // Lambda encapsulee par le bloc
-    AtomLam<Unit, Bool> lam;
+    AtomLam<Unit, Bool> condition;
     
     /**
      * Constructeur
      */
     public BoolBlock(AtomLam<Unit, Bool> lam)
     {
-        this.lam = lam;
+        this.condition = lam;
     }
     
     /**
@@ -27,19 +27,18 @@ public class BoolBlock
      */
     public Bool value(Unit valeur)
     {
-        return lam.call(valeur);
+        return condition.call(valeur);
     }
     
     /**
      * Remplacement du while
      */
-    public Unit whileTrue(AtomLam<Unit, Unit> otherLam)
+    public Unit whileTrue(AtomLam<Unit, Unit> body)
     {
-        lam.call(Unit.getInstance())
+        return this.condition.call(Unit.getInstance())
             .ifTrueIfFalse(
-                (_u) -> {otherLam.call(Unit.getInstance()); return this.whileTrue(otherLam);}, 
+                (_u) -> {body.call(Unit.getInstance()); return this.whileTrue(body);},
                 (_u) -> {return Unit.getInstance();}
             );
-        return Unit.getInstance();
     }
 }

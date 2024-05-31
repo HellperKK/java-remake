@@ -8,8 +8,14 @@ import src.functionnal.AtomLam;
  * @author Hellper (Adrien Baudet)
  * @version 19/11/2017
  */
-public class TrueClass extends Bool{
+public class TrueClass extends Bool {
     static private TrueClass INSTANCE = null;
+
+    /**
+     * Constructeur d'objets de classe Unit
+     */
+    private TrueClass() {
+    }
 
     static public TrueClass getInstance() {
         if (INSTANCE == null) {
@@ -18,48 +24,40 @@ public class TrueClass extends Bool{
         return INSTANCE;
     }
 
-    /**
-     * Constructeur d'objets de classe Unit
-     */
-    private TrueClass() {}
-
-    public Bool not(){
+    public Bool not() {
         return FalseClass.getInstance();
     }
 
-    public Bool and(Bool otherBool){
+    public Bool and(Bool otherBool) {
         return otherBool;
     }
-    
-    public Bool or(Bool otherBool){
+
+
+    public Bool or(Bool otherBool) {
         return this;
     }
-    
-    public Bool xnor(Bool otherBool){
+
+    public Bool xnor(Bool otherBool) {
         return otherBool;
     }
-    
-    public Unit ifTrue(AtomLam<Unit, Unit> lam)
-    {
+
+    public Unit ifTrue(AtomLam<Unit, Unit> lam) {
         return lam.call(Unit.getInstance());
     }
-    
-    public Unit ifFalse(AtomLam<Unit, Unit> lam)
-    {
+
+    public Unit ifFalse(AtomLam<Unit, Unit> lam) {
         return Unit.getInstance();
     }
-    
-    public <A> A ifTrueIfFalse(AtomLam<Unit, A> lam, AtomLam<Unit, A> otherLam)
-    {
+
+    public <A> A ifTrueIfFalse(AtomLam<Unit, A> lam, AtomLam<Unit, A> otherLam) {
         return lam.call(Unit.getInstance());
     }
-    
-    public <A> A ifFalseIfTrue(AtomLam<Unit, A> lam, AtomLam<Unit, A> otherLam)
-    {
+
+    public <A> A ifFalseIfTrue(AtomLam<Unit, A> lam, AtomLam<Unit, A> otherLam) {
         return otherLam.call(Unit.getInstance());
     }
-    
-    public String toString(){
+
+    public String toString() {
         return "Vrai";
     }
 }

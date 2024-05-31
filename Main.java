@@ -55,8 +55,8 @@ public class Main
             .increment()
             .increment()
             .times(
-            (Mint x) -> {
-                System.out.println(x._value());
+            (Integer x) -> {
+                System.out.println(x);
                 return Unit.getInstance();
             }
         );
@@ -69,13 +69,13 @@ public class Main
     
     public static void NumEqTest(){    
        Num test = new Num();
-       test.increment_()
-           .increment_()
-           .increment_();
+       test.incrementInPlace()
+           .incrementInPlace()
+           .incrementInPlace();
        Num testb = new Num();
-       testb.increment_()
-           .increment_()
-           .increment_();
+       testb.incrementInPlace()
+           .incrementInPlace()
+           .incrementInPlace();
        System.out.println(test.equals(testb));
        System.out.println(test.equals(testb.increment().increment()));
        System.out.println(test.equals(testb.decrement().decrement()));
@@ -83,13 +83,13 @@ public class Main
     
     public static void NumSupTest(){    
        Num test = new Num();
-       test.increment_()
-           .increment_()
-           .increment_();
+       test.incrementInPlace()
+           .incrementInPlace()
+           .incrementInPlace();
        Num testb = new Num();
-       testb.increment_()
-           .increment_()
-           .increment_();
+       testb.incrementInPlace()
+           .incrementInPlace()
+           .incrementInPlace();
        System.out.println(test.sup(testb));
        System.out.println(test.sup(testb.increment()));
        System.out.println(test.sup(testb.decrement()));
